@@ -1,5 +1,5 @@
 <template>
-  <v-form v-model="valid">
+  <v-form @submit.prevent="Login">
     <v-container>
       <v-row>
       
@@ -36,6 +36,9 @@
           <v-btn type="submit" color="green">
               Login
           </v-btn>
+          <router-link to="/signup">
+       <v-btn color="red">Signup</v-btn>
+      </router-link>
         </v-col>
       </v-row>
     </v-container>
@@ -50,6 +53,18 @@ export default {
                 password:null
             }
         }
+    },
+     created(){
+          if(User.LoggedIn()){
+            this.$router.push({name:'Forum'})
+          }
+    },
+    methods:{
+      Login(){
+        User.Login(this.form)
+        
+
+      }
     }
     
 }

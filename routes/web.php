@@ -20,3 +20,4 @@ Route::get('/', function () {
 */
 Route::view('/','index');
 Route::view('/{any}','index');
+Route::view('/{any}/{any1}','index');

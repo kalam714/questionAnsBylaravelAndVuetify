@@ -27,6 +27,13 @@ class AuthController extends Controller
         return response()->json(['error' => 'Unauthorized'], 401);
     }
     public function signup(Request $request){
+        $validate=$request->validate([
+            'name'=>'required',
+            'email'=>'required',
+            'password'=>'required|confirmed'
+             
+
+        ]);
         User::create($request->all());
         return $this->login($request);
 
@@ -58,7 +65,9 @@ class AuthController extends Controller
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => $this->guard()->factory()->getTTL() * 60
+            'expires_in' => $this->guard()->factory()->getTTL() * 60,
+            'user'=>auth()->user()->name
+
         ]);
     }
 
