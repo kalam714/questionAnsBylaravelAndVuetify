@@ -47,5 +47,8 @@ class User{
           }
 
       }
+      own(id){
+          return this.id() ==id
+      }
 }
 export default User=new User()

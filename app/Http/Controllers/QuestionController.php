@@ -5,14 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\Question;
 use Illuminate\Http\Request;
 use App\Http\Resources\QuestionResource;
+use Illuminate\Support\Str;
+use App\Models\User;
+
+
 
 class QuestionController extends Controller
 {
+   
     public function __construct()
     {
         $this->middleware('JWT', ['except' => ['index','show']]);
     }
-
     
     public function index()
     {
@@ -35,8 +39,17 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        Question::create($request->all());
-        return response('data inserted');
+       
+        
+      
+        $question=Question::create([
+            'title'=>$request->title,
+            'slug'=>Str::slug($request->title),
+            'body'=>$request->body,
+            'category_id'=>$request->category_id,
+            'user_id'=>auth()->user()->id
+        ]);
+        return response(new QuestionResource($question)); 
     }
 
     /**

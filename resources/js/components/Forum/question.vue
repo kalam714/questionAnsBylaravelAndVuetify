@@ -6,7 +6,7 @@
         <h2 >{{data.title}}</h2>
             </router-link>
         <div class="green--text">
-        <storng>Asked By {{data.user}}</storng>
+        Asked By {{data.user}}
        
         </div>
          <p>{{data.created_at}}</p>
@@ -24,7 +24,9 @@
   </v-card>
 </template>
 <script>
+
 export default {
     props:['data']
+    
 }
 </script>

@@ -4,12 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Category;
+use App\Models\User;
+use App\Models\Reply;
 
 class Question extends Model
 {
     use HasFactory;
 
-    protected $guarded=[];
+    protected $fillable = [
+        'title',
+        'slug',
+        'body',
+        'category_id',
+        'user_id'
+    ];
     public function user(){
         return $this->belongsTo(User::class);
     }
