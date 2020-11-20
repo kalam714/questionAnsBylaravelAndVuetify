@@ -6,6 +6,7 @@ use App\Models\Reply;
 use Illuminate\Http\Request;
 use App\Models\Question;
 use App\Http\Resources\ReplyResource;
+use App\Http\Notifications\newReplyNotificaton;
 class ReplyController extends Controller
 {
     public function __construct()
@@ -23,6 +24,8 @@ class ReplyController extends Controller
     {
       
         $reply=$question->replies()->create($request->all());
+        $user=$question->user;
+        $user->notify(newReplyNotification($reply));
         return response('data saved');
     }
 

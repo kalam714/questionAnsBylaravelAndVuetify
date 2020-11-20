@@ -24,6 +24,13 @@ Route::apiResource('/question/{question}/reply','App\Http\Controllers\ReplyContr
 Route::post('/like/{reply}','App\Http\Controllers\likeController@likeReply');
 Route::delete('/like/{reply}','App\Http\Controllers\likeController@unlikeReply');
 
+Route::post('notification',function(){
+ return [
+     'read'=>auth()->user()->readNotifications(),
+     'unread'=>auth()->user()->unReadNotifications()
+
+ ];
+});
 
 
 

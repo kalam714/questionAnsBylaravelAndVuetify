@@ -2,6 +2,8 @@
   <v-toolbar>
     
     <v-toolbar-title>Title</v-toolbar-title>
+    <v-spacer></v-spacer>
+    <app-notification></app-notification>
     
     <div class="hidden-sm-and-down">
        <router-link v-for="item in items" :key="item.name" 
@@ -12,7 +14,9 @@
   </v-toolbar>
 </template>
 <script>
+import AppNotification from './AppNotification.vue'
 export default {
+  components: { AppNotification },
   data(){
     return {
     items:[
