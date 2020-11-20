@@ -9,6 +9,7 @@ import Forum from '../components/Forum/Forum'
 import singlequestion from '../components/Forum/singlequestion'
 import Create from '../components/Forum/create'
 import edit from '../components/Forum/edit'
+import CategoryCreate from '../components/Category/create'
 
 
 const routes = [
@@ -19,6 +20,7 @@ const routes = [
     { path: '/question/:slug', component: singlequestion, name:'SingleQuestion'},
     { path: '/askquestion', component: Create, name:'create'},
     { path: '/question/:slug', component: edit, name:'edit'},
+    { path: '/categories', component: CategoryCreate, name:'createCategory'},
   ]
 
 

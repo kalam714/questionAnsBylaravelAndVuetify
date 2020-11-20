@@ -19,6 +19,7 @@ class Question extends Model
         'category_id',
         'user_id'
     ];
+    protected $with=['replies'];
     public function user(){
         return $this->belongsTo(User::class);
     }

@@ -13,7 +13,7 @@
         
        </div>
        <v-spacer></v-spacer>
-       <v-btn color="green">5 Replies</v-btn>
+       <v-btn color="green">{{data.reply_count}} Relplies</v-btn>
     </v-card-title>
     <v-card-text v-html="body"></v-card-text>
     <v-card-actions>

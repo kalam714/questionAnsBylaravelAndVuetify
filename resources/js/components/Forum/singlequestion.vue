@@ -6,9 +6,10 @@
         <show :data=question  v-else>
 
 </show>
-
-
- 
+<v-container>
+<replies :replies="question.replies"></replies>
+<new-reply :questionSlug="question.slug"></new-reply>
+</v-container>
 
     
 </div>
@@ -18,10 +19,19 @@
 <script>
 import show from './show'
 import edit from './edit'
+import Replies from '../Reply/replies'
+import Reply from '../Reply/reply.vue'
+import newReply from '../Reply/newReply'
   
 
 export default {
-    components:{show,edit},
+    components:{
+        show,
+        edit,
+        Replies,
+        Reply,
+        newReply,
+    },
     
     data(){
         return{

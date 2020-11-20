@@ -18,7 +18,7 @@ export default {
     items:[
       {name:'Forum',to:'/forum',show:true},
       {name:'Ask Question',to:'/askquestion',show:User.LoggedIn()},
-      {name:'Categories',to:'/categories',show:User.LoggedIn()},
+      {name:'Categories',to:'/categories',show:User.admin()},
       {name:'Login',to:'/login',show:!User.LoggedIn()},
       {name:'Logout',to:'/logout',show:User.LoggedIn()}
     ]

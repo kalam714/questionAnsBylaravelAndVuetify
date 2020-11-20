@@ -6,7 +6,9 @@
 
                </question>
            </v-flex>
-           categories
+           <v-flex xs4>
+           <app-sidebar></app-sidebar>
+           </v-flex>
 
        </v-layout>
 
@@ -14,9 +16,11 @@
 </template>
 <script>
 import question from './question'
+import  AppSidebar from './AppSidebar'
 export default {
     components:{
-        question
+        question,
+        AppSidebar
     },
     data(){
         return{
